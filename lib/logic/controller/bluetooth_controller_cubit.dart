@@ -17,20 +17,22 @@ class BluetoothControllerCubit extends Cubit<BluetoothControllerState> {
 
   Future<void> setConnection() async {
     if (state.address != null) {
-      await BluetoothConnection.toAddress(state.address).then((_connection) {
+      final BluetoothConnection? _connection =
+          await BluetoothConnection.toAddress(state.address);
+      if (_connection != null) {
         emit(
           state.copyWith(
               connection: _connection,
               status: BluetoothControllerStatus.connected),
         );
-      }).catchError((error) {
+      } else {
         emit(
           state.copyWith(
             status: BluetoothControllerStatus.failed,
             connection: null,
           ),
         );
-      });
+      }
     }
   }
 }
