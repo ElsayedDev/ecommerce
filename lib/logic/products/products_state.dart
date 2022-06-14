@@ -41,7 +41,6 @@ class Product {
   final String id;
   final String name;
   final String image_path;
-
   final String description;
 
   const Product(this.id, this.name, this.image_path, this.description);

@@ -114,14 +114,24 @@ class ProductScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Selection Page'),
+        title: const Text(
+          'Products Selection',
+          style: TextStyle(
+            color: Color(0xff521945),
+          ),
+        ),
+        leading: Image.asset('assets/aiet_icon.png'),
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const DiscoveryPage()));
             },
-            icon: const Icon(Icons.bluetooth),
+            icon: const Icon(
+              Icons.bluetooth,
+              color: Color(0xff521945),
+            ),
           ),
           IconButton(
             onPressed: () {
@@ -158,7 +168,10 @@ class ProductScreen extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.delete),
+            icon: const Icon(
+              Icons.delete,
+              color: Color(0xff521945),
+            ),
           ),
         ],
       ),
